@@ -1,0 +1,40 @@
+{
+  "name": "advanced-ai-chatbot",
+  "version": "1.0.0",
+  "description": "An intelligent chatbot with web browsing capabilities, advanced memory management, and autonomous reasoning",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "server": "nodemon server/index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install-client": "cd client && npm install",
+    "install-server": "npm install",
+    "install-all": "npm run install-server && npm run install-client",
+    "build": "cd client && npm run build"
+  },
+  "keywords": [
+    "chatbot",
+    "ai",
+    "web-browsing",
+    "memory-management",
+    "reasoning"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongodb-memory-server": "^10.1.4",
+    "mongoose": "^7.6.3",
+    "openai": "^4.12.1",
+    "puppeteer": "^21.4.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.1"
+  }
+}
