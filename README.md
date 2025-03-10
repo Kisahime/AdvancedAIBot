@@ -18,6 +18,18 @@ An intelligent chatbot with web browsing capabilities, advanced memory managemen
 - **NLP**: Transformer-based models for language understanding
 - **Web Scraping**: Puppeteer for web browsing capabilities
 
+## Setup Instructions
+
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm run install-all
+   ```
+   This will install both server and client dependencies.
+3. Set up environment variables:
+   - Copy the `.env.example` file to `.env` (if available) or create a new `.env` file
+   - Update the environment variables with your own values, especially the MongoDB connection string and OpenAI API key
+
 ## Starting the Application
 
 You can start the application in several ways:

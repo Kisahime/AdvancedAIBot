@@ -28,12 +28,17 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "highlight.js": "^11.11.1",
     "mongodb-memory-server": "^10.1.4",
     "mongoose": "^7.6.3",
+    "multer": "^1.4.5-lts.1",
     "openai": "^4.12.1",
-    "puppeteer": "^21.4.1"
+    "puppeteer": "^21.4.1",
+    "react-syntax-highlighter": "^15.6.1",
+    "tesseract.js": "^5.0.3"
   },
   "devDependencies": {
+    "@types/react-syntax-highlighter": "^15.5.13",
     "concurrently": "^8.2.2",
     "nodemon": "^3.0.1"
   }
