@@ -18,17 +18,18 @@ An intelligent chatbot with web browsing capabilities, advanced memory managemen
 - **NLP**: Transformer-based models for language understanding
 - **Web Scraping**: Puppeteer for web browsing capabilities
 
-## Setup Instructions
+## API Requirements
 
-1. Clone the repository
-2. Install dependencies:
-   ```
-   npm run install-all
-   ```
-   This will install both server and client dependencies.
-3. Set up environment variables:
-   - Copy the `.env.example` file to `.env` (if available) or create a new `.env` file
-   - Update the environment variables with your own values, especially the MongoDB connection string and OpenAI API key
+### Google API Key
+
+This application requires a Google API key to function properly:
+
+- **Purpose**: Powers the AI language model capabilities for natural language understanding and generation
+- **How to obtain**: Visit [Google AI Studio](https://aistudio.google.com/apikey) to create an API key
+- **Setup**: Add your API key to the `.env` file in the project root:
+  ```
+  GOOGLE_API_KEY=your_api_key_here
+  ```
 
 ## Starting the Application
 
@@ -99,3 +100,5 @@ start.bat
 - `/server/models` - Data models and database schemas
 - `/server/services` - Core services (memory, reasoning, web browsing)
 - `/server/api` - API routes and controllers
+
+Thank you.

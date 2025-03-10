@@ -87,7 +87,7 @@ function App() {
       }
 
       // Add bot response to messages
-      setMessages(prev => [...prev.filter(m => m._id), response.data.message]);
+      setMessages(prev => [...prev, response.data.message]);
     } catch (error) {
       console.error('Error sending message:', error);
       // Add error message

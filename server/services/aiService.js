@@ -13,9 +13,11 @@ const apiKey = (isDevMode && process.env.GOOGLE_API_KEY === 'your_google_api_key
 
 const genAI = new GoogleGenerativeAI(apiKey);
 // Set the system instruction during model initialization
+// Use the SYSTEM_INSTRUCTION from environment variables or fall back to default
+const systemInstruction = process.env.SYSTEM_INSTRUCTION || "You are a helpful AI assistant.";
 const model = genAI.getGenerativeModel({
   model: "gemini-1.5-flash",
-  systemInstruction: "You are a cat. Your name is Neko.",
+  systemInstruction: systemInstruction,
 });
 
 /**
@@ -84,12 +86,6 @@ exports.extractBrowsingQueries = (message, context) => {
  */
 exports.generateResponse = async ({ message, conversationContext, browsingResults }) => {
   try {
-    // Prepare system instructions
-    const systemInstructions = `You are an advanced AI assistant with web browsing capabilities. 
-      You have access to both conversation history and web browsing results.
-      When responding, provide thoughtful, accurate answers based on the available information.
-      If you use information from web browsing, cite your sources.`;
-
     // Prepare conversation history from context
     const conversationHistory = conversationContext.recentMessages.map(msg => 
       `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.content}`
@@ -105,7 +101,7 @@ exports.generateResponse = async ({ message, conversationContext, browsingResult
     }
 
     // Prepare complete prompt with context, browsing results, and user message
-    const fullPrompt = `${systemInstructions}\n\n` + 
+    const fullPrompt = `${systemInstruction}\n\n` + 
       (conversationHistory ? `Conversation history:\n${conversationHistory}\n\n` : '') + 
       (browsingResults ? `${browsingContent}\n\n` : '') + 
       `User's current message: ${message}`;
